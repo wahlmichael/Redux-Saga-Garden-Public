@@ -26,7 +26,7 @@ router.get('/details/:id', (req, res) => {
 router.post('/', (req, res) => {
   const newPlant = req.body;
   const queryText = `INSERT INTO plant ("name", "kingdom", "clade", "order", "family", "subfamily", "genus")
-                    ($1, $2, $3, $4, $5, $6, $7)`;
+                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
   const queryValues = [
     newPlant.name,
     newPlant.kingdom,

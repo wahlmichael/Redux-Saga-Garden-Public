@@ -27,7 +27,7 @@ CREATE TABLE plant (
 );
 
 INSERT INTO plant ("name", "kingdom", "clade", "order", "family", "subfamily", "genus")
-('Rose', 'Plantae', 'Angiosperms', 'Rosales', 'Rosaceae', 'Rosoideae', 'Rosa'),
+VALUES ('Rose', 'Plantae', 'Angiosperms', 'Rosales', 'Rosaceae', 'Rosoideae', 'Rosa'),
 ('Tulip', 'Plantae', 'Angiosperms', 'Liliales', 'Liliaceae', 'Lilieae', 'Tulipa'),
 ('Oak', 'Plantae', 'Angiosperms', 'Fagales', 'Fagaceae', NULL, 'Quercus');
 ```
@@ -56,18 +56,17 @@ This is the build Heroku will run, but during development, you will likely not n
 
 ## Base Mode
 
-1. The route `http://localhost:5000/api/plant` returns an array of plants. Display that array on the `Garden` component on load.
-1. Implement redux-saga so the api get request is happening in a saga (not in a component).
-1. Add a form that allows adding a new plant to the database. The server `post` route to do this is available at `http://localhost:5000/api/plant`.
+1. Add the `redux-logger` middleware to the project for debugging
+1. Add `redux-sagas` to the project to make an API request. The route `http://localhost:5000/api/plant` returns an array of plants. Display that array on the `Garden` component on load.
+1. Add all of the plant fields to the form to allow adding a new plant to the database. The server `post` route to do this is available at `http://localhost:5000/api/plant`.
 1. Add a `Delete` button for each plant to allow it to be removed from the database. The server `delete` route to do this is available at `http://localhost:5000/api/plant`, and it requires `req.query.id` to be an `id` from the database.
 
-## Hard Mode
+## Stretch Goals
 
 1. Make the list editable (use inputs) and add a `Save` button for each plant to allow it to be updated in the database. The server `delete` route to do this is available at `http://localhost:5000/api/plant`, and it requires `req.query.id` to be an `id` from the database.
 1. Use `react-router` so that when a user navigates to `http://localhost:3000/plant/1` it displays the details for a given plant. The server `get` route to do this is available at `http://localhost:5000/api/plant/1`.
 1. Make the individual plant page editable (use inputs) and add a `save` button for each plant to allow it to be edited in the database.
-
-## Stretch Mode
+1. Add `material-ui` to the project to give the site an earthy color palette (green and brown?)
 
 ## Deployment
 
