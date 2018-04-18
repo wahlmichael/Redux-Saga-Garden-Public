@@ -36,16 +36,8 @@ VALUES ('Rose', 'Plantae', 'Angiosperms', 'Rosales', 'Rosaceae', 'Rosoideae', 'R
 
 * Run `npm install`
 * Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run dev`
+* Run `npm run dev` to start both **client** and **server**
 * Navigate to `localhost:3000`
-
-## Production Build
-
-This is the build Heroku will run, but during development, you will likely not need to use it.
-
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm start`
-* Navigate to `localhost:5000`
 
 ## Lay of the Land
 
@@ -68,7 +60,7 @@ This is the build Heroku will run, but during development, you will likely not n
 1. Make the individual plant page editable (use inputs) and add a `save` button for each plant to allow it to be edited in the database.
 1. Add `material-ui` to the project to give the site an earthy color palette (green and brown?)
 
-## Deployment
+### Deployment
 
 1. Create a new Heroku project
 1. Link the Heroku project to the project GitHub Repo
