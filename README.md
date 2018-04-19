@@ -38,7 +38,8 @@ VALUES ('Rose', 'Plantae', 'Angiosperms', 'Rosales', 'Rosaceae', 'Rosoideae', 'R
 
 * Run `npm install`
 * Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run dev` to start both **client** and **server**
+* Run `npm run server` to start the server
+* Run `npm run client` to start the client
 * Navigate to `localhost:3000`
 
 ## Lay of the Land
