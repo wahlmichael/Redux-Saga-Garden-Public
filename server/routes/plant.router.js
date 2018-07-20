@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-  const newPlant = req.body;
+  const updatedPlant = req.body;
 
   const queryText = `UPDATE table_name
   SET "name" = $1, 
