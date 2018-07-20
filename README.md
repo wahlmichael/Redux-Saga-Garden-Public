@@ -59,7 +59,7 @@ VALUES ('Rose', 'Plantae', 'Angiosperms', 'Rosales', 'Rosaceae', 'Rosoideae', 'R
 ## Stretch Goals
 
 1. Use `react-router` so that when a user navigates to `http://localhost:3000/plant/1` it displays the details for a given plant. The server `get` route to do this is available at `http://localhost:5000/api/plant/1`.
-1. Make the list of plants editable. Keep the table, but display the values inside of inputs so the user can change them. Add a `Save` button for each plant (which should go next to the `Delete` button for each plant). After a user changes the values on the DOM, the user should be able to click `Save` to allow it to be updated in the database. The server `put` route to do this is available at `http://localhost:5000/api/plant`, and it requires `req.query.id` to be an `id` from the database.
+1. On the new detail view, allow editing the details for that plant. After a user changes the values on the DOM, the user should be able to click `Save` to allow it to be updated in the database. The server `put` route to do this is available at `http://localhost:5000/api/plant`, and it requires `req.query.id` to be an `id` from the database.
 1. Make the individual plant page editable (use inputs) and add a `save` button for each plant to allow it to be edited in the database.
 1. Add `material-ui` to the project to give the site an earthy color palette (green and brown?)
 
