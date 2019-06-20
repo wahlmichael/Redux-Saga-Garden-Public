@@ -76,9 +76,9 @@ router.put('/', (req, res) => {
     });
 });
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const queryText = 'DELETE FROM plant WHERE id=$1';
-  pool.query(queryText, [req.query.id])
+  pool.query(queryText, [req.params.id])
     .then(() => { res.sendStatus(200); })
     .catch((err) => {
       console.log('Error completing SELECT plant query', err);
