@@ -7,13 +7,23 @@ const mapStateToProps = reduxState => ({
 
 class PlantList extends Component {
     componentDidMount() {
+        this.getPlant();
         // use component did mount to dispatch an action to request the plantList from the API
+    }
+
+    getPlant() {
+        this.props.dispatch({ type: 'GET_PLANT' })
     }
 
     render() {
         return (
             <div>
-                <h3>This is the plant list</h3>
+                <h3>
+                    {this.props.reduxState.plantList.map((plant,i) => {
+                        return (<li key={i}>{plant.name}</li>)
+                    })}
+
+                </h3>
                 <pre>{JSON.stringify(this.props.reduxState)}</pre>
             </div>
         );
