@@ -25,6 +25,21 @@ const plantList = (state = startingPlantArray, action) => {
   }
 };
 
+
+function* postSaga(action){
+  try{
+    yield axios.post('/api/plant', action.payload);
+    yield put({type: 'ADD_PLANT', payload: action.payload});
+  } catch {
+   console.log('Error in postSaga');
+  }
+
+}
+
+function* rootSaga() {
+  yield takeEvery('SET_PLANT', postSaga);
+  yield takeEvery('GET_PLANT', plantSaga);
+ }
 function* plantSaga() {
   try {
       const plantResponse = yield axios.get('/api/plant');
@@ -33,9 +48,8 @@ function* plantSaga() {
       console.log('error fetching plant', error)
   }
 }
-function* rootSaga() {
-  yield takeEvery('GET_PLANT', plantSaga)
-}
+
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
