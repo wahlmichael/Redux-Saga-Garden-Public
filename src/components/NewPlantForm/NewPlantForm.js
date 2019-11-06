@@ -25,7 +25,7 @@ class NewPlantForm extends Component {
 
     addNewPlant = event => {
         event.preventDefault();
-        this.props.dispatch({ type: 'ADD_PLANT', payload: this.state.newPlant })
+        this.props.dispatch({ type: 'SET_PLANT', payload: this.state.newPlant })
         this.setState({
             newPlant: {
                 id: this.state.newPlant.id + 1,

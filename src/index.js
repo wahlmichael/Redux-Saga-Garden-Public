@@ -25,8 +25,19 @@ const plantList = (state = startingPlantArray, action) => {
   }
 };
 
-function* rootSaga() {
 
+function* postSaga(action){
+  try{
+    yield axios.post('/api/plant', action.payload);
+    yield put({type: 'ADD_PLANT', payload: action.payload});
+  } catch {
+   console.log('Error in postSaga');
+  }
+
+}
+
+function* rootSaga() {
+  yield takeEvery('SET_PLANT', postSaga)
 }
 
 // Create sagaMiddleware
@@ -35,7 +46,7 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   combineReducers({ plantList,
    }),
-   applyMiddleware(sagaMiddleWare, logger)
+   applyMiddleware(sagaMiddleware, logger)
 );
 
 sagaMiddleware.run(rootSaga);
