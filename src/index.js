@@ -37,8 +37,19 @@ function* postSaga(action){
 }
 
 function* rootSaga() {
-  yield takeEvery('SET_PLANT', postSaga)
+  yield takeEvery('SET_PLANT', postSaga);
+  yield takeEvery('GET_PLANT', plantSaga);
+ }
+function* plantSaga() {
+  try {
+      const plantResponse = yield axios.get('/api/plant');
+      yield put ({ type: 'ADD_PLANT', payload: plantResponse.data})
+  } catch(error) {
+      console.log('error fetching plant', error)
+  }
 }
+
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
