@@ -25,8 +25,16 @@ const plantList = (state = startingPlantArray, action) => {
   }
 };
 
+function* plantSaga() {
+  try {
+      const plantResponse = yield axios.get('/api/plant');
+      yield put ({ type: 'ADD_PLANT', payload: plantResponse.data})
+  } catch(error) {
+      console.log('error fetching plant', error)
+  }
+}
 function* rootSaga() {
-
+  yield takeEvery('GET_PLANT', plantSaga)
 }
 
 // Create sagaMiddleware
@@ -35,7 +43,7 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   combineReducers({ plantList,
    }),
-   applyMiddleware(sagaMiddleWare, logger)
+   applyMiddleware(sagaMiddleware, logger)
 );
 
 sagaMiddleware.run(rootSaga);
