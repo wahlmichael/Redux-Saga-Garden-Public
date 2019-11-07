@@ -25,6 +25,22 @@ const plantList = (state = [], action) => {
   }
 };
 
+const myPlantId = (state = '', action) => {
+  if(action.type === "FIND_PLANT_ID"){
+    return {...state, myPlantId: action.payload}
+  } else {
+    return state;
+  }
+}
+
+const myPlant = (state = {}, action) => {
+  if(action.type === "FIND_PLANT"){
+    return action.payload
+  } else {
+    return state;
+  }
+}
+
 
 function* postSaga(action){
   try{
@@ -65,7 +81,10 @@ function* deleteSaga(action) {
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  combineReducers({ plantList,
+  combineReducers({ 
+    plantList,
+    myPlantId,
+    myPlant,
    }),
    applyMiddleware(sagaMiddleware, logger)
 );

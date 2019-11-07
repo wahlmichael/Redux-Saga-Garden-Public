@@ -49,7 +49,7 @@ class NewPlantForm extends Component {
         return (
             <div>
                 <h3>This is the form</h3>
-                <pre>{JSON.stringify(this.state)}</pre>
+                {/* <pre>{JSON.stringify(this.state)}</pre> */}
                 <form onSubmit={this.addNewPlant}>
                     <input placeholder='name' type='text' value={this.state.newPlant.name} onChange={ (event) => this.handleNameChange(event, 'name')} />
                     <input placeholder='kingdom'type='text' value={this.state.newPlant.kingdom} onChange={ (event) => this.handleNameChange(event, 'kingdom')} />
