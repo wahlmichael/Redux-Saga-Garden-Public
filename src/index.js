@@ -19,7 +19,7 @@ import App from './App';
 const plantList = (state = [], action) => {
   switch (action.type) {
     case 'ADD_PLANT':
-      return [ ...state, ...action.payload ]
+      return [ ...action.payload ]
     default:
       return state;
   }
@@ -29,7 +29,7 @@ const plantList = (state = [], action) => {
 function* postSaga(action){
   try{
     yield axios.post('/api/plant', action.payload);
-    yield put({type: 'ADD_PLANT', payload: action.payload});
+    yield put({type: 'GET_PLANT', payload: action.payload});
   } catch {
    console.log('Error in postSaga');
   }
