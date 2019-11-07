@@ -31,7 +31,7 @@ class PlantList extends Component {
     render() {
         return (
             <div>
-                <h2>This is the garden!</h2>
+                <h2>Garden:</h2>
                 <h3>
                     {this.props.reduxState.plantList.map((plant,i) => {
                         return (<li key={i}>{plant.name} <DeleteForeverIcon color='secondary' size='small' variant='outlined' onClick={()=>this.deletePlant(plant.id)}>DELETE</DeleteForeverIcon><button onClick={()=>this.handlePlantClick(plant)}>View Plant</button></li>)

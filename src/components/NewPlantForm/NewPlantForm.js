@@ -53,8 +53,6 @@ class NewPlantForm extends Component {
     render() {
         return (
             <div>
-                <h3>This is the form</h3>
-                <pre>{JSON.stringify(this.state)}</pre>
                 <div id="plantForm">
                     <TextField variant="outlined" className="plantInput" placeholder='name' type='text' value={this.state.newPlant.name} onChange={ (event) => this.handleNameChange(event, 'name')} />
                     <TextField variant="outlined" className="plantInput" placeholder='kingdom'type='text' value={this.state.newPlant.kingdom} onChange={ (event) => this.handleNameChange(event, 'kingdom')} />
