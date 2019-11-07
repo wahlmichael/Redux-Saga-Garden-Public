@@ -15,12 +15,16 @@ class PlantList extends Component {
         this.props.dispatch({ type: 'GET_PLANT' })
     }
 
+    deletePlant(id){
+        this.props.dispatch({type: 'DELETE_PLANT', payload: id});
+    }
+
     render() {
         return (
             <div>
                 <h3>
                     {this.props.reduxState.plantList.map((plant,i) => {
-                        return (<li key={i}>{plant.name}</li>)
+                        return (<li key={i}>{plant.name} <button onClick={()=>this.deletePlant(plant.id)}>DELETE</button></li>)
                     })}
 
                 </h3>
