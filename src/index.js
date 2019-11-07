@@ -29,21 +29,31 @@ const plantList = (state = [], action) => {
 function* postSaga(action){
   try{
     yield axios.post('/api/plant', action.payload);
-    yield put({type: 'GET_PLANT', payload: action.payload});
+    yield put({type: 'GET_PLANT'});
   } catch {
    console.log('Error in postSaga');
   }
-
 }
 
 function* rootSaga() {
   yield takeEvery('SET_PLANT', postSaga);
   yield takeEvery('GET_PLANT', plantSaga);
+  yield takeEvery('DELETE_PLANT', deleteSaga);
  }
+
 function* plantSaga() {
   try {
       const plantResponse = yield axios.get('/api/plant');
       yield put ({ type: 'ADD_PLANT', payload: plantResponse.data})
+  } catch(error) {
+      console.log('error fetching plant', error)
+  }
+}
+
+function* deleteSaga(action) {
+  try {
+     yield axios.delete(`/api/plant/${action.payload}`);
+     yield put({type: 'GET_PLANT'});
   } catch(error) {
       console.log('error fetching plant', error)
   }
