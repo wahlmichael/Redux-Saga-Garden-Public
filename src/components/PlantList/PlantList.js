@@ -32,17 +32,17 @@ class PlantList extends Component {
     render() {
         return (
             <div>
-                <h2>This is the garden!</h2>
-                <h3>
+                <h2>Garden:</h2>
+                
                     {this.props.reduxState.plantList.map((plant,i) => {
                         return (<li key={i}>{plant.name} 
                         <DeleteForeverIcon color='secondary' size='small' variant='outlined' 
                             onClick={()=>this.deletePlant(plant.id)}>DELETE
                         </DeleteForeverIcon>
-                        <LocalFloristSharpIcon color="secondary" fontSize="large" onClick={()=>this.handlePlantClick(plant)}/></li>)
+                        <LocalFloristSharpIcon color="secondary" fontSize="small" onClick={()=>this.handlePlantClick(plant)}/></li>)
                     })}
 
-                </h3>
+            
                 {/* <pre>{JSON.stringify(this.props.reduxState)}</pre> */}
             </div>
         );
