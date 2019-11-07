@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormGroup, TextField } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
+import CheckCircleSharpIcon from '@material-ui/icons/CheckCircleSharp';
 
 
 // import Button from '@material-ui/core/Button';
@@ -54,7 +55,7 @@ class NewPlantForm extends Component {
             <div>
                 <h3>This is the form</h3>
                 <pre>{JSON.stringify(this.state)}</pre>
-                <form id="plantForm" onSubmit={this.addNewPlant}>
+                <div id="plantForm">
                     <TextField variant="outlined" className="plantInput" placeholder='name' type='text' value={this.state.newPlant.name} onChange={ (event) => this.handleNameChange(event, 'name')} />
                     <TextField variant="outlined" className="plantInput" placeholder='kingdom'type='text' value={this.state.newPlant.kingdom} onChange={ (event) => this.handleNameChange(event, 'kingdom')} />
                     <TextField variant="outlined" className="plantInput" placeholder='clade'type='text' value={this.state.newPlant.clade} onChange={ (event) => this.handleNameChange(event, 'clade')} />
@@ -62,8 +63,9 @@ class NewPlantForm extends Component {
                     <TextField variant="outlined" className="plantInput" placeholder='family'type='text' value={this.state.newPlant.family} onChange={ (event) => this.handleNameChange(event, 'family')} />
                     <TextField variant="outlined" className="plantInput" placeholder='subfamily'type='text' value={this.state.newPlant.subfamily} onChange={ (event) => this.handleNameChange(event, 'subfamily')} />
                     <TextField variant="outlined" className="plantInput" placeholder='genus'type='text' value={this.state.newPlant.genus} onChange={ (event) => this.handleNameChange(event, 'genus')} />
-                    <input type='submit' value='Add New Plant' />
-                </form>
+                    {/* <input type='submit' value='Add New Plant' /> */}
+                    <CheckCircleSharpIcon color="primary" fontSize="large" onClick={this.addNewPlant} />
+                </div>
             </div>
         );
     }
