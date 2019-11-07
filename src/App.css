@@ -1,14 +1,24 @@
 .App {
   text-align: center;
+  background-image: url('flowers.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 .App-header {
-  background-color: darkgreen;
+  background-color: #bdcebe;
   min-height: 70px;
   padding: 20px;
   color: white;
 }
 
+.indivPlant {
+  width: 50%;
+  margin: auto;
+}
 .App-title {
   font-size: 1.5em;
 }
@@ -30,7 +40,7 @@ pre {
 }
 
 #plantForm {
-  display: flex;
+  display: center;
   flex-wrap: wrap;
 }
 

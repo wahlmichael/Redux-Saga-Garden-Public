@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 
 const Plant = (props) => (
   <>
-  <div>
+  <div className="indivPlant">
       <h1>{props.myPlant.name}</h1> 
   </div>
+  
     <pre>{JSON.stringify(props.myPlant)}</pre>
   </>
 );
