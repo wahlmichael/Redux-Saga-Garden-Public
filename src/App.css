@@ -5,6 +5,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -14,6 +15,10 @@
   color: white;
 }
 
+.indivPlant {
+  width: 50%;
+  margin: auto;
+}
 .App-title {
   font-size: 1.5em;
 }
