@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import LocalFloristSharpIcon from '@material-ui/icons/LocalFloristSharp';
 
 const mapReduxStateToProps = reduxState => ({
     reduxState,
@@ -34,7 +35,11 @@ class PlantList extends Component {
                 <h2>This is the garden!</h2>
                 <h3>
                     {this.props.reduxState.plantList.map((plant,i) => {
-                        return (<li key={i}>{plant.name} <DeleteForeverIcon color='secondary' size='small' variant='outlined' onClick={()=>this.deletePlant(plant.id)}>DELETE</DeleteForeverIcon><button onClick={()=>this.handlePlantClick(plant)}>View Plant</button></li>)
+                        return (<li key={i}>{plant.name} 
+                        <DeleteForeverIcon color='secondary' size='small' variant='outlined' 
+                            onClick={()=>this.deletePlant(plant.id)}>DELETE
+                        </DeleteForeverIcon>
+                        <LocalFloristSharpIcon color="secondary" fontSize="large" onClick={()=>this.handlePlantClick(plant)}/></li>)
                     })}
 
                 </h3>
